@@ -1,30 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { Villain } from '../villain';
+import { VillainService } from '../villain.service';
+import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   heroes: Hero[] = [];
-
-  constructor(private heroService: HeroService) { }
+  villains: Villain[] = [];
+  constructor(
+    private heroService: HeroService,
+    private villainService: VillainService
+  ) {}
 
   ngOnInit(): void {
     this.getHeroes();
+    this.getVillains()
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroService
+      .getHeroes()
+      .subscribe((heroes) => (this.heroes = heroes.slice(1, 5)));
+  }
+
+  getVillains(): void {
+    this.villainService
+      .getVillains()
+      .subscribe((villain) => (this.villains = villain.slice(1, 5)));
+    console.log(this.villains);
   }
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

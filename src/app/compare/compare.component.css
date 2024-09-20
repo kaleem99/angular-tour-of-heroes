@@ -1,0 +1,10 @@
+.compare {
+  width: 80%;
+  display: flex;
+  margin-top: 20px;
+}
+canvas{
+    width: 450px;
+    height: 250px;
+    margin-top: 20px;
+}

@@ -1,6 +1,12 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app/app.module';
+// import {AppComponent} from './app/app.component';
+// import {bootstrapApplication, provideProtractorTestingSupport} from '@angular/platform-browser';
 
-import { AppModule } from './app/app.module';
+// bootstrapApplication(AppModule, {
+//   providers: [provideProtractorTestingSupport()],
+// });
+
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

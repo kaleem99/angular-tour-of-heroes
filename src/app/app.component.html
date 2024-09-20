@@ -1,14 +1,25 @@
-<h1>{{title}}</h1>
+<h1>{{ title | uppercase }}</h1>
+<!-- <app-heroes></app-heroes> -->
+<!-- <button>Dashboard</button>
+<button>Heroes</button> -->
 <nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
+  <!-- <a
+    [style]="selectedPathName === 'Dashboard' ? 'color: red' : ''"
+    (click)="testing('Dashboard')"
+    routerLink="/"
+    >Dashboard</a
+  >
+  <a (click)="testing('Heroes')" routerLink="/heroes">Heroes</a>
+  <a (click)="testing('Villains')" routerLink="/Villains">Villains</a> -->
+  <a
+    [class]="selectedPathName === item.pathName ? 'active' : 'inactive'"
+    (click)="testing(item.pathName)"
+    *ngFor="let item of navigationData"
+    routerLink="/{{ item.routerLink }}"
+  >
+    {{ item.pathName }}
+  </a>
+  <!-- Your code here -->
 </nav>
-<router-outlet></router-outlet>
+<router-outlet data="data"></router-outlet>
 <app-messages></app-messages>
-
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->

@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { VillainsComponent } from './villains/villains.component';
+import { VillainDetailsComponent } from './villain-details/villain-details.component';
+import { CompareComponent } from './compare/compare.component';
 
 const routes: Routes = [
+  { path: 'heroes', component: HeroesComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'heroes/detail/:id', component: HeroDetailComponent },
+  { path: 'villains/detail/:id', component: VillainDetailsComponent },
+
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes', component: HeroesComponent }
+  { path: 'villains', component: VillainsComponent },
+  { path: 'compare', component: CompareComponent },
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

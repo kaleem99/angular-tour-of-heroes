@@ -1,0 +1,31 @@
+<div class="compare">
+  <div>
+    <label for="hero">Select a Hero:</label>
+    <select (change)="onSelectHero($event)">
+      <option *ngFor="let hero of heroes" [value]="hero.id">
+        {{ hero.name }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="villain">Select a Villain:</label>
+    <select (change)="onSelectVillain($event)">
+      <option *ngFor="let villain of villains" [value]="villain.id">
+        {{ villain.name }}
+      </option>
+    </select>
+  </div>
+  <button (click)="checkResult()">Check results</button>
+</div>
+@if(result === true){
+<canvas
+  baseChart
+  [data]="barChartData"
+  [options]="barChartOptions"
+  [plugins]="barChartPlugins"
+  [legend]="barChartLegend"
+  [type]="'bar'"
+>
+</canvas>
+
+}

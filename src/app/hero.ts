@@ -1,11 +1,8 @@
 export interface Hero {
   id: number;
   name: string;
+  superpower: string;
+  description: string;
+  nemises?: string;
+  powerLevel: number;
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

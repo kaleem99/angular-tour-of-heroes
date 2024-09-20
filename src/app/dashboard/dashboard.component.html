@@ -1,14 +1,17 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
   <a *ngFor="let hero of heroes"
-    routerLink="/detail/{{hero.id}}">
-    {{hero.name}}
+      routerLink="/heroes/detail/{{hero.id}}">
+      {{hero.name}}
+  </a>
+</div>
+<h2>Top Villains</h2>
+<div class="heroes-menu">
+  <a *ngFor="let villain of villains"
+      routerLink="/villains/detail/{{villain.id}}">
+      {{villain.name}}
   </a>
 </div>
 
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->
+<app-hero-search></app-hero-search>
+<app-villain-search></app-villain-search>

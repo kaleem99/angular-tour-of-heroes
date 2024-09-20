@@ -1,16 +1,45 @@
 <div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div>id: {{ hero.id }}</div>
+  <div class="hero-attribute">
     <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
   </div>
+  <div class="hero-attribute">
+    <label for="hero-superpower">Hero superpower: </label>
+    <input
+      id="hero-superpower"
+      [(ngModel)]="hero.superpower"
+      placeholder="superpower"
+    />
+  </div>
+  <div class="hero-attribute">
+    <label for="hero-description">Hero description: </label>
+    <textarea
+      id="hero-description"
+      [(ngModel)]="hero.description"
+      placeholder="description"
+    ></textarea>
+  </div>
+  <div class="hero-attribute">
+    <label for="hero-description">Hero Nemises: </label>
+    <select [(ngModel)]="hero.nemises" id="hero.nemises">
+      <option *ngFor="let villain of villains" [value]="villain.name">
+        {{ villain.name }}
+      </option>
+    </select>
+  </div>
+  <div class="hero-attribute">
+    <label for="hero-powerLevel">Hero power Level: </label>
+    <input
+      id="hero-powerLevel"
+      [(ngModel)]="hero.powerLevel"
+      placeholder="powerLevel"
+      type="number"
+      min="1"
+      max="100"
+    />
+  </div>
+  <button type="button" (click)="save()">save</button>
   <button type="button" (click)="goBack()">go back</button>
 </div>
-
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->
